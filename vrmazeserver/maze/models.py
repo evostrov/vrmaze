@@ -2,6 +2,9 @@ from django.db import models
 from itertools import product
 import random
 
+class MazeDumper(models.Model):
+    maze_json_dump = models.CharField(max_length=2000)
+
 class Mazegen(object):
     """
         Base class to generates random mazes. The default implements is the Aldous-Broder algorithm.

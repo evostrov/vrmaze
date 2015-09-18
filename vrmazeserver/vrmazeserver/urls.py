@@ -18,6 +18,7 @@ from django.contrib import admin
 from maze import views
 
 urlpatterns = [
+    url(r'^last_maze', views.last_maze, name='last_maze' ),
     url(r'^generate_maze', views.generate_maze, name='generate_maze' ),
     url(r'^admin/', include(admin.site.urls)),
 ]
