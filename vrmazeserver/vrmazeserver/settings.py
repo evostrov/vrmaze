@@ -56,7 +56,7 @@ ROOT_URLCONF = 'vrmazeserver.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['maze/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
