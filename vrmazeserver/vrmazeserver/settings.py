@@ -25,6 +25,8 @@ SECRET_KEY = 'ix^fzfm8qtrq#z*fc_&xzif=doxdlwb*%t0+tzpbb4a8xhc*3l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+MAZE_SIZE = 6
+
 ALLOWED_HOSTS = []
 
 

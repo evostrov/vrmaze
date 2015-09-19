@@ -1,6 +1,10 @@
 from django.db import models
 from itertools import product
 import random
+import json
+import logging
+
+logging.basicConfig(filename="/home/evostrov/py/debug.log", level=logging.INFO)
 
 class MazeDumper(models.Model):
     maze_json_dump = models.CharField(max_length=2000)
@@ -12,9 +16,12 @@ class Mazegen(object):
         If it had already been visited do nothing.
         Continue to pick nodes until all nodes have been visited.
     """
-    def __init__(self,size):
+    def __init__(self, size, tree=None):
         self.size = size
-        self.tree = {}
+        if tree is None:
+            self.tree = {}
+        else:
+            self.tree = tree
 
     def generate_possible_choices(self,node):
         x,y = node
@@ -74,6 +81,15 @@ class Mazegen(object):
                self.visit_a_node(next,current)
                current = next
         return self.tree
+
+    def to_json(self):
+        result = {}
+        for i in range(self.size):
+            for j in range(self.size):
+                node = (i, j)
+                result[str(i) + ',' + str(j)] = self.get_classes_for_node(node)
+
+        return json.dumps(result)
 
     def get_classes_for_node(self,node):
         classes = self.tree[node][1]
