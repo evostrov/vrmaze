@@ -22,9 +22,12 @@ def generate_maze(request):
     maze_gen = GrowingTree(size=settings.MAZE_SIZE)
     maze_gen.generate_maze()
 
-    response_data = maze_gen.to_json()
-
-    dumper = MazeDumper(maze_json_dump=response_data)
+    dumper = MazeDumper(maze_json_dump=maze_gen.to_json())
     dumper.save()
 
-    return HttpResponse(response_data, content_type="application/json")
+    response_data = {
+        'maze_dump' : maze_gen.dump(),
+        'size' : settings.MAZE_SIZE,
+    }
+
+    return JsonResponse(response_data)

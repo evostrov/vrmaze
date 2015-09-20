@@ -82,14 +82,17 @@ class Mazegen(object):
                current = next
         return self.tree
 
-    def to_json(self):
+    def dump(self):
         result = {}
         for i in range(self.size):
             for j in range(self.size):
                 node = (i, j)
                 result[str(i) + ',' + str(j)] = self.get_classes_for_node(node)
 
-        return json.dumps(result)
+        return result
+
+    def to_json(self):
+        return json.dumps(self.dump())
 
     def get_classes_for_node(self,node):
         classes = self.tree[node][1]
