@@ -13,17 +13,20 @@ function Start () {
 
     if ( www.error == null ) {
         var answer = JSON.Parse(www.text);
-        Debug.Log(answer);
+        // Debug.Log(answer);
+
+        var maze_dump = answer['maze_dump'];
+        var maze_size = parseInt( answer['size'].ToString().Replace("\"", "") );
 
         var wall_length = LonWallPrefab.transform.localScale.x;
         var wall_width = LonWallPrefab.transform.localScale.z;
 
-        for ( var x = 0; x < 6; x++ ) {
-            for ( var z = 0; z < 6; z++ ) {
+        for ( var x = 0; x < maze_size; x++ ) {
+            for ( var z = 0; z < maze_size; z++ ) {
                 var node_x0 = x*wall_length;
                 var node_z0 = z*wall_length;
 
-                var node_directions = answer[x + ',' + z].ToString();
+                var node_directions = maze_dump[x + ',' + z].ToString();
 
                 if ( ! node_directions.Contains("N") ) {
                     var n_wall = Instantiate(
