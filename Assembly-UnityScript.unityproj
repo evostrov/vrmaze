@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{617812EB-4B3E-A76F-65D1-4E52081CC0B8}</ProjectGuid>
+	<ProjectGuid>{7A62AB40-8227-B387-A7A4-F070B522E0F9}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\JSON Tests\UnityScript\Test_UnityScript.js" />
      <Compile Include="Assets\MyFPSController.js" />
      <Compile Include="Assets\MyRocketScript.js" />
      <Compile Include="Assets\NewBehaviourScript.js" />
@@ -57,6 +58,7 @@
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Cardboard\Resources\RadialUndistortionEffect.shader" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
+     <None Include="Assets\JSON Tests\TroubleShoot.txt" />
      <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
      <None Include="Assets\Cardboard\Resources\SolidColor.shader" />
  <Reference Include="UnityEngine.Analytics">
@@ -68,13 +70,16 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
+ <Reference Include="ICSharpCode.SharpZipLib">
+ <HintPath>Z:/www/vrmaze/Assets/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{3956DF25-CAB0-E025-84D4-7D29DF1DEB8F}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{DD720104-B9E7-634C-7A6C-CB89CE4A1772}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

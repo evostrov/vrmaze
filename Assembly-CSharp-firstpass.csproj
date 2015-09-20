@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{3956DF25-CAB0-E025-84D4-7D29DF1DEB8F}</ProjectGuid>
+	<ProjectGuid>{DD720104-B9E7-634C-7A6C-CB89CE4A1772}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Plugins\SimpleJSON.cs" />
      <Compile Include="Assets\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
      <Compile Include="Assets\Standard Assets\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
      <Compile Include="Assets\Standard Assets\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" />
@@ -96,6 +97,7 @@
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Cardboard\Resources\RadialUndistortionEffect.shader" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
+     <None Include="Assets\JSON Tests\TroubleShoot.txt" />
      <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
      <None Include="Assets\Cardboard\Resources\SolidColor.shader" />
  <Reference Include="UnityEngine.Analytics">
@@ -106,6 +108,9 @@
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="ICSharpCode.SharpZipLib">
+ <HintPath>Z:/www/vrmaze/Assets/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

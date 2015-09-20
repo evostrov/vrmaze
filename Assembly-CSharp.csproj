@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{91A244D3-7259-BA30-363B-29B326FF261E}</ProjectGuid>
+	<ProjectGuid>{11A30C32-00E1-F47E-A199-06FDDBAB6979}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -67,6 +67,7 @@
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\CardboardAndroidDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\CardboardiOSDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\UnityEditorDevice.cs" />
+     <Compile Include="Assets\JSON Tests\CSharp\Test_CSharp.cs" />
      <None Include="Assets\Cardboard\Legacy\Resources\SkyboxMesh.shader" />
      <None Include="Assets\Cardboard\Legacy\Resources\GUIScreen.shader" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
@@ -75,6 +76,7 @@
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Cardboard\Resources\RadialUndistortionEffect.shader" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
+     <None Include="Assets\JSON Tests\TroubleShoot.txt" />
      <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
      <None Include="Assets\Cardboard\Resources\SolidColor.shader" />
  <Reference Include="UnityEngine.Analytics">
@@ -86,13 +88,16 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
+ <Reference Include="ICSharpCode.SharpZipLib">
+ <HintPath>Z:/www/vrmaze/Assets/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{3956DF25-CAB0-E025-84D4-7D29DF1DEB8F}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{DD720104-B9E7-634C-7A6C-CB89CE4A1772}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
