@@ -33,7 +33,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_YRotation;
         private Vector2 m_Input;
         private Vector3 m_MoveDir = Vector3.zero;
-        private Vector3 desiredMove = Vector3.zero;
+        // private Vector3 desiredMove = Vector3.zero;
         private CharacterController m_CharacterController;
         private CollisionFlags m_CollisionFlags;
         private bool m_PreviouslyGrounded;
@@ -63,7 +63,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void Update()
         {
             // TODO
-            // RotateView();
+            RotateView();
 
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
@@ -102,13 +102,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             // TODO
             // always move along the camera forward as it is the direction that it being aimed at
-            // Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
+            Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
 
             // get a normal for the surface that is being touched to move along it
-            // RaycastHit hitInfo;
-            // Physics.SphereCast(transform.position, m_CharacterController.radius, Vector3.down, out hitInfo,
-            //                    m_CharacterController.height/2f);
-            // desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
+            RaycastHit hitInfo;
+            Physics.SphereCast(transform.position, m_CharacterController.radius, Vector3.down, out hitInfo,
+                               m_CharacterController.height/2f);
+            desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
 
             m_MoveDir.x = desiredMove.x*speed;
             m_MoveDir.z = desiredMove.z*speed;
@@ -147,8 +147,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void ProgressStepCycle(float speed)
         {
             // TODO
-            // if (m_CharacterController.velocity.sqrMagnitude > 0 && (m_Input.x != 0 || m_Input.y != 0))
-            if (m_CharacterController.velocity.sqrMagnitude > 0 && (desiredMove.x != 0 || desiredMove.z != 0))
+            // if (m_CharacterController.velocity.sqrMagnitude > 0 && (desiredMove.x != 0 || desiredMove.z != 0))
+            if (m_CharacterController.velocity.sqrMagnitude > 0 && (m_Input.x != 0 || m_Input.y != 0))
             {
                 m_StepCycle += (m_CharacterController.velocity.magnitude + (speed*(m_IsWalking ? 1f : m_RunstepLenghten)))*
                              Time.fixedDeltaTime;
@@ -209,18 +209,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void GetInput(out float speed)
         {
             // Read input
-            float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
-            float vertical = CrossPlatformInputManager.GetAxis("Vertical");
+            float horizontal = Input.GetAxis("Horizontal");
+            float vertical = Input.GetAxis("Vertical");
 
+            // TODO
             // Read input
-            desiredMove = Vector3.zero;
-            if ( Input.touchCount > 0 ) {
-                desiredMove = new Vector3(
-                    Camera.main.transform.forward.x,
-                    0,
-                    Camera.main.transform.forward.z
-                );
-            }
+            // desiredMove = Vector3.zero;
+            // if ( Input.touchCount > 0 ) {
+            //     desiredMove = new Vector3(
+            //         Camera.main.transform.forward.x,
+            //         0,
+            //         Camera.main.transform.forward.z
+            //     );
+            // }
 
             bool waswalking = m_IsWalking;
 
