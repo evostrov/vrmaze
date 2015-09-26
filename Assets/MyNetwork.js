@@ -2,9 +2,12 @@
 
 var WallPrefab : GameObject;
 
-function Start () {
-    Debug.Log( parseInt( Mathf.Round(-0.6) ) );
+var node_row : int;
+var node_col : int;
+var dir : String;
 
+function Start () {
+    InvokeRepeating( "SendPersonPosition", 2, 0.5 );
 }
 
 function Update () {
@@ -14,13 +17,12 @@ function Update () {
 function FixedUpdate () {
     var node_size = WallPrefab.transform.localScale.x;
 
-    var node_row = parseInt( transform.position.x / node_size );
-    var node_col = parseInt( transform.position.z / node_size );
+    node_row = parseInt( transform.position.x / node_size );
+    node_col = parseInt( transform.position.z / node_size );
 
     var x_dir = Camera.main.transform.forward.x;
     var z_dir = Camera.main.transform.forward.z;
 
-    var dir : String;
     if (
          z_dir > 0 && x_dir < 0 && z_dir > x_dir && Mathf.Abs(z_dir) < Mathf.Abs(x_dir)
           ||
@@ -49,7 +51,9 @@ function FixedUpdate () {
     ) {
         dir = 'E';
     }
+}
 
+function SendPersonPosition () {
     var form = new WWWForm();
     form.AddField( "node_row", node_row );
     form.AddField( "node_col", node_col );
