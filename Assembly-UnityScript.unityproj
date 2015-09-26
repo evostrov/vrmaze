@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\JSON Tests\UnityScript\Test_UnityScript.js" />
      <Compile Include="Assets\MyFPSController.js" />
+     <Compile Include="Assets\MyNetwork.js" />
      <Compile Include="Assets\MyRocketScript.js" />
      <Compile Include="Assets\NewBehaviourScript.js" />
      <None Include="Assets\Cardboard\Legacy\Resources\SkyboxMesh.shader" />

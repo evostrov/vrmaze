@@ -1,0 +1,60 @@
+﻿#pragma strict
+
+var WallPrefab : GameObject;
+
+function Start () {
+    Debug.Log( parseInt( Mathf.Round(-0.6) ) );
+
+}
+
+function Update () {
+
+}
+
+function FixedUpdate () {
+    var node_size = WallPrefab.transform.localScale.x;
+
+    var node_row = parseInt( transform.position.x / node_size );
+    var node_col = parseInt( transform.position.z / node_size );
+
+    var x_dir = Camera.main.transform.forward.x;
+    var z_dir = Camera.main.transform.forward.z;
+
+    var dir : String;
+    if (
+         z_dir > 0 && x_dir < 0 && z_dir > x_dir && Mathf.Abs(z_dir) < Mathf.Abs(x_dir)
+          ||
+         z_dir < 0 && x_dir < 0 && z_dir > x_dir && Mathf.Abs(z_dir) < Mathf.Abs(x_dir)
+    ) {
+        dir = 'N';
+    }
+    else if (
+         z_dir < 0 && x_dir > 0 && z_dir < x_dir && Mathf.Abs(z_dir) < Mathf.Abs(x_dir)
+          ||
+         z_dir > 0 && x_dir > 0 && z_dir < x_dir && Mathf.Abs(z_dir) < Mathf.Abs(x_dir)
+    ) {
+        dir = 'S';
+    }
+    else if (
+         z_dir > 0 && x_dir < 0 && z_dir > x_dir && Mathf.Abs(z_dir) > Mathf.Abs(x_dir)
+          ||
+         z_dir > 0 && x_dir > 0 && z_dir > x_dir && Mathf.Abs(z_dir) > Mathf.Abs(x_dir)
+    ) {
+        dir = 'W';
+    }
+    else if (
+         z_dir < 0 && x_dir < 0 && z_dir < x_dir && Mathf.Abs(z_dir) > Mathf.Abs(x_dir)
+          ||
+         z_dir < 0 && x_dir > 0 && z_dir < x_dir && Mathf.Abs(z_dir) > Mathf.Abs(x_dir)
+    ) {
+        dir = 'E';
+    }
+
+    var form = new WWWForm();
+    form.AddField( "node_row", node_row );
+    form.AddField( "node_col", node_col );
+    form.AddField( "dir", dir );
+
+    var url = "http://5-63-157-114.ovz.vps.regruhosting.ru/update_person_progress";
+    var www = new WWW(url, form.data, form.headers);
+}
