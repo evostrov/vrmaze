@@ -102,7 +102,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             // TODO
             // always move along the camera forward as it is the direction that it being aimed at
-            Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
+            Vector3 desiredMove = m_Camera.transform.forward*m_Input.y + m_Camera.transform.right*m_Input.x;
 
             // get a normal for the surface that is being touched to move along it
             RaycastHit hitInfo;
@@ -252,7 +252,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void RotateView()
         {
+            // transform.rotation = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y, 0);
+            // transform.rotation = Quaternion.LookRotation(transform, m_Camera.transform);
             m_MouseLook.LookRotation (transform, m_Camera.transform);
+            // transform.LookAt( m_Camera.transform.forward );
+            // transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, Camera.main.transform.localEulerAngles.y, transform.localEulerAngles.z);
         }
 
 
