@@ -1,8 +1,10 @@
+from django.views.decorators.csrf import csrf_exempt
 from django.template.defaulttags import register
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from django.conf import settings
 from maze.models import Mazegen, GrowingTree, MazeDumper
+import re
 import json
 import logging
 
@@ -31,3 +33,20 @@ def generate_maze(request):
     }
 
     return JsonResponse(response_data)
+
+@csrf_exempt
+def update_person_position(request):
+    params = request.body.split('&');
+
+    res = {}
+    for param in params:
+        match = re.match( '(\w+)=(.+)', param )
+        res[ match.group(1) ] = match.group(2)
+
+    maze_obj = MazeDumper.objects.order_by('-id')[0]
+    maze_obj.cur_node_row = res['node_row']
+    maze_obj.cur_node_col = res['node_col']
+    maze_obj.cur_direction = res['dir']
+    maze_obj.save()
+
+    return HttpResponse('')

@@ -8,6 +8,9 @@ logging.basicConfig(filename="/home/evostrov/py/debug.log", level=logging.INFO)
 
 class MazeDumper(models.Model):
     maze_json_dump = models.CharField(max_length=2000)
+    cur_direction = models.CharField(max_length=1, default='')
+    cur_node_row = models.IntegerField(default=0)
+    cur_node_col = models.IntegerField(default=0)
 
 class Mazegen(object):
     """
@@ -167,14 +170,3 @@ class GrowingTree(Mazegen):
 
     def is_finish(self):
         return len(self.active_sets) == 0
-
-# if __name__ == '__main__':
-#     from sys import argv,setrecursionlimit
-#     setrecursionlimit(2000)
-#     if not len(argv) == 3:
-#         print "Usage : mazegen [size] [filename]"
-#         exit(1)
-#     name,size,filename = argv
-#     maze_gen = GrowingTree(size=int(size))
-#     maze_gen.generate_maze()
-#     maze_gen.draw_maze(filename=filename)

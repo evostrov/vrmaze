@@ -20,5 +20,6 @@ from maze import views
 urlpatterns = [
     url(r'^last_maze', views.last_maze, name='last_maze' ),
     url(r'^generate_maze', views.generate_maze, name='generate_maze' ),
+    url(r'^update_person_position', views.update_person_position, name='update_person_position' ),
     url(r'^admin/', include(admin.site.urls)),
 ]
