@@ -39,6 +39,25 @@
 </body>
 
 <script type="text/javascript">
+    var last_node;
+    ( function poll () {
+        setTimeout(
+            function () {
+                $.ajax({
+                    url: "/get_person_position",
+                    success: function(data){
+                        last_node = $('td#node-' + data.node_row + '-' + data.node_col);
+                        last_node.html(data.dir);
+                        console.log(data);
+                    },
+                    dataType: "json",
+                }).always( function () {
+                    poll();
+                });
+            },
+            1000/3
+        );
+    } )();
 </script>
 
 </html>

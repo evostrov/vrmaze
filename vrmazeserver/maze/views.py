@@ -34,6 +34,17 @@ def generate_maze(request):
 
     return JsonResponse(response_data)
 
+def get_person_position(request):
+    maze_obj = MazeDumper.objects.order_by('-id')[0]
+
+    res = {
+        'node_row': maze_obj.cur_node_row,
+        'node_col': maze_obj.cur_node_col,
+        'dir': maze_obj.cur_direction,
+    }
+
+    return JsonResponse(res)
+
 @csrf_exempt
 def update_person_position(request):
     params = request.body.split('&');
