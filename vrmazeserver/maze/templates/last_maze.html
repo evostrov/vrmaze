@@ -61,7 +61,7 @@
 
                         console.log(data);
 
-                        if ( data.node_row == {{ size }} && data.node_col == {{ size }} ) {
+                        if ( data.node_row == {{ size }}-1 && data.node_col == {{ size }}-1 ) {
                             alert('Ура! Финиш!')
                             polling = false;
                         }
