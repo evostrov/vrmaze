@@ -40,6 +40,7 @@
 
 <script type="text/javascript">
     var last_node;
+    var polling = true;
     ( function poll () {
         setTimeout(
             function () {
@@ -49,10 +50,14 @@
                         last_node = $('td#node-' + data.node_row + '-' + data.node_col);
                         last_node.html(data.dir);
                         console.log(data);
+
+                        if ( data.node_row == {{ size }} && data.node_col == {{ size }} ) {
+                            polling = false;
+                        }
                     },
                     dataType: "json",
                 }).always( function () {
-                    poll();
+                    if ( polling ) { poll() }
                 });
             },
             1000/3
