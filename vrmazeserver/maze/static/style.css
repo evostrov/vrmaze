@@ -39,3 +39,15 @@ td{
 {
     border-left-style:none;
 }
+.cur_node_S {
+    background:url('/static/pointer.jpg') 173px 0;
+}
+.cur_node_N {
+    background:url('/static/pointer.jpg') 310px 0;
+}
+.cur_node_W {
+    background:url('/static/pointer.jpg') 240px 0;
+}
+.cur_node_E {
+    background:url('/static/pointer.jpg') 105px 0;
+}

@@ -47,11 +47,22 @@
                 $.ajax({
                     url: "/get_person_position",
                     success: function(data){
-                        last_node = $('td#node-' + data.node_row + '-' + data.node_col);
-                        last_node.html(data.dir);
+                        if ( typeof last_node !== 'undefined' ) {
+                            last_node.removeClass('cur_node_S');
+                            last_node.removeClass('cur_node_N');
+                            last_node.removeClass('cur_node_W');
+                            last_node.removeClass('cur_node_E');
+                        }
+
+                        if ( data.dir != '' ) {
+                            last_node = $('td#node-' + data.node_row + '-' + data.node_col);
+                            last_node.addClass('cur_node_' + data.dir);
+                        }
+
                         console.log(data);
 
                         if ( data.node_row == {{ size }} && data.node_col == {{ size }} ) {
+                            alert('Ура! Финиш!')
                             polling = false;
                         }
                     },
