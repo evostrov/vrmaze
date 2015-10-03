@@ -60,5 +60,5 @@ function SendPersonPosition () {
     form.AddField( "dir", dir );
 
     var url = "http://5-63-157-114.ovz.vps.regruhosting.ru/update_person_position";
-    var www = new WWW(url, form.data, form.headers);
+    var www = new WWW(url, form);
 }
