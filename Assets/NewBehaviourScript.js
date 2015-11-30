@@ -9,7 +9,7 @@ var BiDirStartFloorPrefab : GameObject;
 var FinishFloorPrefab : GameObject;
 
 function Start () {
-    var url = "http://5-63-157-114.ovz.vps.regruhosting.ru/generate_maze";
+    var url = "http://vrmaze.it-engine.ru/generate_maze";
     var www : WWW = new WWW(url);
 
     yield www;

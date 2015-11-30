@@ -59,6 +59,6 @@ function SendPersonPosition () {
     form.AddField( "node_col", node_col );
     form.AddField( "dir", dir );
 
-    var url = "http://5-63-157-114.ovz.vps.regruhosting.ru/update_person_position";
+    var url = "http://vrmaze.it-engine.ru/update_person_position";
     var www = new WWW(url, form);
 }
